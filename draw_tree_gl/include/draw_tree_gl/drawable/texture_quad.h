@@ -7,10 +7,11 @@
 #include "gl_classes/program_uniform.h"
 #include "gl_classes/vertex_array.h"
 #include "gl_classes/host_device_buffer.h"
+#include "gl_classes/check_gl_error.h"
 
 namespace draw_tree_gl {
 namespace drawable {
-
+    using gl_classes::checkGLError;
     class TextureQuad : public Drawable
     {
     public:
