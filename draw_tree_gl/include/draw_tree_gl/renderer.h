@@ -10,13 +10,19 @@ namespace draw_tree_gl {
     class Renderer
     {
     public:
-        void setup();
+        virtual ~Renderer();
+        virtual void setup();
 
-        void draw(
+        virtual void draw(
             transform_tree_glm::Transform::pointer root, 
             glm::mat4 projection_view
         );
-        DefaultProgram m_drawProgram;
+        
+        shader::DefaultProgram& drawProgram() { return m_drawProgram; }
+        std::vector<glm::mat4>& poseTrace() { return m_poseTrace; }
+
+    protected:
+        shader::DefaultProgram m_drawProgram;
         std::vector<glm::mat4> m_poseTrace;
     };
 

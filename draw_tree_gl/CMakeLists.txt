@@ -10,7 +10,7 @@ add_library(
     STATIC 
     src/drawable/texture_quad.cpp
     src/shader/default_shaders.cpp
-    src/random.cpp
+    src/renderer.cpp
 )
 
 target_include_directories(

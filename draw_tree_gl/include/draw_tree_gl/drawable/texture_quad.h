@@ -1,7 +1,7 @@
 #pragma once
 
 #include <glm/glm.hpp>
-#include "draw_tree_gl/drawing/drawable.h"
+#include "draw_tree_gl/drawable/drawable.h"
 #include "gl_classes/shader.h"
 #include "gl_classes/program.h"
 #include "gl_classes/program_uniform.h"

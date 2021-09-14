@@ -1,7 +1,13 @@
-#include "draw_tree_gl/renderer.cpp"
+#include "draw_tree_gl/drawable/drawable.h"
+#include "draw_tree_gl/renderer.h"
 
 namespace draw_tree_gl {
 
+    Renderer::~Renderer()
+    {
+
+    }
+    
     void Renderer::setup()
     {
         m_drawProgram.setup();
@@ -20,12 +26,11 @@ namespace draw_tree_gl {
         m_poseTrace.push_back(glm::mat4(1));
 
         root->visit([this,&projection_view](auto& visit, auto* tf) -> void
-
         {
             if (!tf) return;
             m_poseTrace.push_back(m_poseTrace.back() * tf->transformLocalToParent());
             
-            auto drawable = static_cast<Drawable*>(tf->data);
+            auto drawable = static_cast<drawable::Drawable*>(tf->data);
             if (drawable && drawable->enabled())
             {
                 glm::mat4 pvm = projection_view * m_poseTrace.back();
@@ -61,7 +66,7 @@ namespace draw_tree_gl {
                 visit.skipChildren();
             }
             m_poseTrace.pop_back();
-        } );
+        });
 
     }
 
