@@ -76,7 +76,7 @@ namespace drawable {
             // glDrawArrays(GL_TRIANGLES, 0, 3);  checkGLError();
             // glDrawArraysInstanced(GL_LINES, 0, 2, m_pvmBuffer.size());  checkGLError();
             // glDrawArraysInstanced(GL_TRIANGLES, 0, 3, m_pvmBuffer.size());  checkGLError();
-            glDrawArraysInstanced(GL_TRIANGLE_FAN, 0, 4, m_pvmBuffer.size());  checkGLError();
+            glDrawArraysInstanced(GL_TRIANGLE_FAN, 0, 4, static_cast<GLsizei>(m_pvmBuffer.size()));  checkGLError();
         }
         void draw(const glm::mat4& pvm) override
         {
